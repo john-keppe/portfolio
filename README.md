@@ -42,9 +42,7 @@ portfolio/
 
 ---
 
-# 🙏 Acknowledgments
-
-## 🤖 AI Involvement
+# 🤖 AI Involvement
 
 This portfolio website was created with the assistance of Microsoft Copilot, an AI companion. Copilot helped structure the site, generate the HTML/CSS template, and draft supporting documentation.
 
