@@ -1,3 +1,38 @@
+/* Dark Mode Overrides */
+body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #eaeaea;
+  --link-color: #66b2ff;
+  --link-hover: #3399ff;
+  --card-bg: #1e1e1e;
+  --card-border: #333;
+  --footer-bg: #1a1a1a;
+  --footer-text: #aaa;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text-color);
+}
+
+.skills-grid li {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+}
+
+footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+}
+
+a {
+  color: var(--link-color);
+}
+a:hover {
+  color: var(--link-hover);
+}
+
 /* Reset */
 * {
   margin: 0;
@@ -14,6 +49,11 @@ body {
   max-width: 900px;
   margin: auto;
   padding: 20px;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 /* Navigation */
@@ -55,6 +95,10 @@ nav a:hover {
 .hero p {
   font-size: 1.1rem;
   color: #555;
+}
+
+h1, h2, h3, p, li {
+  color: var(--text-color);
 }
 
 /* Sections */
@@ -141,23 +185,6 @@ footer a:hover {
   --card-border: #eee;
   --footer-bg: #fafafa;
   --footer-text: #777;
-}
-
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-}
-
-/* Dark Mode Overrides */
-body.dark-mode {
-  --bg-color: #121212;
-  --text-color: #eaeaea;
-  --link-color: #66b2ff;
-  --link-hover: #3399ff;
-  --card-bg: #1e1e1e;
-  --card-border: #333;
-  --footer-bg: #1a1a1a;
-  --footer-text: #aaa;
 }
 
 /* Footer Button */
