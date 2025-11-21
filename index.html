@@ -2,111 +2,209 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>John Keppe Portfolio</title>
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="stylesheet" href="style.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"> <!-- replace with your saved GitHub favicon path -->
+
+  <!-- Retro + Modern Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    /* Reset + Base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.3s, color 0.3s;
+    }
+    :root {
+      --bg-color: #f4f4f4;
+      --text-color: #222;
+      --accent-color: #ff4081;
+    }
+    body.dark {
+      --bg-color: #121212;
+      --text-color: #f4f4f4;
+      --accent-color: #00e5ff;
+    }
+
+    header {
+      background: var(--accent-color);
+      padding: 1rem;
+      text-align: center;
+      font-family: 'Press Start 2P', cursive;
+      color: #fff;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      background: #333;
+      padding: 0.5rem;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      font-family: 'Press Start 2P', cursive;
+      color: var(--accent-color);
+    }
+
+    /* Dark Mode Toggle */
+    .toggle-btn {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: var(--accent-color);
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      color: #fff;
+      font-family: 'Press Start 2P', cursive;
+    }
+
+    /* Scroll to Top */
+    #scrollTopBtn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 99;
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #333;
+      color: #fff;
+      margin-top: 2rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      nav { flex-direction: column; }
+    }
+  </style>
 </head>
 <body>
   <header>
-    <nav>
-      <h1>John Keppe</h1>
-      <!-- Hamburger menu button -->
-      <button id="menu-toggle" aria-label="Toggle Menu">☰</button>
-      <ul id="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <!-- Dark mode toggle -->
-      <button id="theme-toggle">Toggle Dark Mode</button>
-    </nav>
+    <h1>John Keppe</h1>
+    <p>Administrative Professional | Creative Web Developer</p>
   </header>
 
-  <section class="hero">
-    <h2>Welcome to My Portfolio</h2>
-    <p>Explore my projects, skills, and experience.</p>
-  </section>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#charts">Charts</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <button class="toggle-btn" onclick="toggleDarkMode()">Dark Mode</button>
 
   <section id="about">
     <h2>About Me</h2>
-    <p>I’m a developer passionate about building clean, responsive websites and applications.</p>
-  </section>
-
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="card">
-      <h3>Project One</h3>
-      <p>A description of your project goes here.</p>
-    </div>
-    <div class="card">
-      <h3>Project Two</h3>
-      <p>Another project description goes here.</p>
-    </div>
+    <p>Results-driven administrative professional exploring creative web development and digital tools to reimagine administrative work.</p>
   </section>
 
   <section id="skills">
     <h2>Skills</h2>
-    <ul class="skills-grid">
-      <li>HTML</li>
-      <li>CSS</li>
-      <li>JavaScript</li>
-      <li>React</li>
-      <li>Node.js</li>
+    <ul>
+      <li>Microsoft Office & Google Workspace</li>
+      <li>Customer Service Excellence</li>
+      <li>Data Entry & Database Management</li>
+      <li>AI Literacy (Copilot, Gemini, Claude)</li>
+      <li>Critical & Creative Thinking</li>
     </ul>
+  </section>
+
+  <section id="charts">
+    <h2>Charts & Graphs</h2>
+    <canvas id="skillsChart" width="400" height="200"></canvas>
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
-    <p>Email: <a href="mailto:john@example.com">john@example.com</a></p>
+    <p>Email: johnnykeppe@zohomail.com</p>
+    <p>Phone: (304) 712-9855</p>
   </section>
 
   <footer>
-    <p>&copy; 2025 John Keppe. All rights reserved.</p>
-    <button id="theme-toggle-footer">Toggle Dark Mode</button>
+    <p>&copy; 2025 John Keppe | Retro‑Modern Portfolio</p>
   </footer>
 
   <!-- Scroll to Top Button -->
-  <button id="scroll-top" title="Back to top">↑</button>
+  <button onclick="scrollToTop()" id="scrollTopBtn">&#8679;</button>
 
-  <!-- Scripts -->
   <script>
-    const toggleButton = document.getElementById('theme-toggle');
-    const toggleButtonFooter = document.getElementById('theme-toggle-footer');
-    const scrollTopBtn = document.getElementById('scroll-top');
-    const menuToggle = document.getElementById('menu-toggle');
-    const navLinks = document.getElementById('nav-links');
-
-    // Apply saved theme on load
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      document.body.classList.add('dark-mode');
+    // Dark Mode Toggle
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark");
     }
 
-    // Toggle theme and save preference
-    function toggleTheme() {
-      document.body.classList.toggle('dark-mode');
-      const newTheme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
-      localStorage.setItem('theme', newTheme);
-    }
-    toggleButton.addEventListener('click', toggleTheme);
-    toggleButtonFooter.addEventListener('click', toggleTheme);
-
-    // Show scroll-to-top button when scrolling down
-    window.addEventListener('scroll', () => {
-      scrollTopBtn.style.display = window.scrollY > 300 ? 'flex' : 'none';
-    });
-
-    // Scroll to top on click
-    scrollTopBtn.addEventListener('click', () => {
+    // Scroll to Top
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = function() {
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        scrollBtn.style.display = "block";
+      } else {
+        scrollBtn.style.display = "none";
+      }
+    };
+    function scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    }
 
-    // Toggle mobile menu
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('show');
+    // Chart.js Example
+    const ctx = document.getElementById('skillsChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Office Tools', 'Customer Service', 'Database', 'AI Literacy', 'Creative Thinking'],
+        datasets: [{
+          label: 'Skill Strength',
+          data: [9, 8, 8, 7, 9],
+          backgroundColor: [
+            '#ff4081',
+            '#00e5ff',
+            '#ffeb3b',
+            '#4caf50',
+            '#9c27b0'
+          ]
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false }
+        }
+      }
     });
   </script>
 </body>
 </html>
+
 
