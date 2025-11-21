@@ -8,6 +8,8 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"> <!-- replace with your saved GitHub favicon path -->
 
+  <link rel="stylesheet" href="retro.css">
+
   <!-- Retro + Modern Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
@@ -34,6 +36,8 @@
       --accent-color: #00e5ff;
     }
 
+    <body class="theme-retro">
+    
     header {
       background: var(--accent-color);
       padding: 1rem;
@@ -111,6 +115,8 @@
   </style>
 </head>
 <body>
+  <div class="retro-grid" aria-hidden="true"></div>
+
   <header>
     <h1>John Keppe</h1>
     <p>Administrative Professional | Creative Web Developer</p>
@@ -203,6 +209,12 @@
         }
       }
     });
+
+    <button class="toggle-btn" onclick="toggleTheme()">Theme</button>
+<script>
+  function toggleTheme() {
+    document.body.classList.toggle('theme-retro');
+  }
   </script>
 </body>
 </html>
