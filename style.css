@@ -109,7 +109,25 @@ footer {
   text-align: center;
   margin-top: 40px;
   padding: 20px 0;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: #777;
   border-top: 1px solid #eee;
+  background-color: #fafafa;
 }
+
+footer p {
+  margin: 5px 0;
+}
+
+footer a {
+  color: #0077cc;          /* Accent color for link */
+  text-decoration: none;   /* Remove underline */
+  font-weight: 500;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+footer a:hover {
+  color: #005fa3;          /* Darker shade on hover */
+  border-bottom: 1px solid #005fa3; /* Subtle underline effect */
+}
+
