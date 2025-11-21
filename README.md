@@ -42,7 +42,12 @@ portfolio/
 
 ---
 
-## 🙏 Acknowledgments
-This portfolio website was built with guidance from **Microsoft Copilot**, which helped structure and style the project.
+# 🙏 Acknowledgments
+
+## 🤖 AI Involvement
+
+This portfolio website was created with the assistance of Microsoft Copilot, an AI companion. Copilot helped structure the site, generate the HTML/CSS template, and draft supporting documentation.
+
+While the content (resume details, personal information, and career highlights) is my own, the design and code were guided by AI. I want to be clear that this project is a collaboration between myself and Copilot, rather than something I coded entirely by hand.
 
 ---
