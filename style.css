@@ -58,8 +58,10 @@ nav h1 {
 }
 nav ul {
   list-style: none;
-  display: flex;
+  display: flex;          /* horizontal by default */
   gap: 15px;
+  margin: 0;
+  padding: 0;
 }
 nav a {
   text-decoration: none;
@@ -68,6 +70,16 @@ nav a {
 }
 nav a:hover {
   color: var(--link-color);
+}
+
+/* Hamburger button hidden on desktop */
+#menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-color);
 }
 
 /* === Hero === */
@@ -193,46 +205,30 @@ footer button:hover {
   background-color: var(--button-hover);
 }
 
-/* Hamburger button */
-#menu-toggle {
-  display: none;
-  font-size: 1.5rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--text-color);
-}
-
-/* Mobile styles */
+/* === Responsive Tweaks === */
 @media (max-width: 768px) {
   #menu-toggle {
-    display: block;
+    display: block;       /* show hamburger on mobile */
   }
 
   nav ul {
-    display: none;
+    display: none;        /* hide links by default */
     flex-direction: column;
     gap: 10px;
     margin-top: 10px;
     width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
   }
 
   nav ul.show {
     display: flex;
+    max-height: 500px;    /* enough to show all links */
+    opacity: 1;
   }
-}
 
-/* === Responsive Tweaks === */
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  nav ul {
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
-  }
   nav h1 {
     font-size: 1.2rem;
   }
@@ -263,3 +259,4 @@ footer button:hover {
     font-size: 1rem;
   }
 }
+
