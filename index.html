@@ -2,150 +2,110 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>John Keppe | Portfolio</title>
-  <link rel="icon" type="image/png" href="favicon.png">
+  <title>John Keppe Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Navigation -->
   <header>
     <nav>
       <h1>John Keppe</h1>
+      <!-- Hamburger menu button -->
       <button id="menu-toggle" aria-label="Toggle Menu">☰</button>
-      <ulid="nav-links">
+      <ul id="nav-links">
         <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#skills">Skills</a></li>
-        <li><a href="#education">Education</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <!-- Dark mode toggle -->
+      <button id="theme-toggle">Toggle Dark Mode</button>
     </nav>
   </header>
 
-  <!-- Hero -->
   <section class="hero">
-    <h2>Administrative Professional</h2>
-    <p>Streamlining operations • Customer Service Excellence • AI Literacy</p>
+    <h2>Welcome to My Portfolio</h2>
+    <p>Explore my projects, skills, and experience.</p>
   </section>
 
-  <!-- About -->
   <section id="about">
     <h2>About Me</h2>
-    <p>
-      Results-driven administrative professional with a proven track record of improving office operations
-      and streamlining processes. Adept at multitasking and maintaining organization in fast-paced environments.
-    </p>
+    <p>I’m a developer passionate about building clean, responsive websites and applications.</p>
   </section>
 
-  <!-- Experience -->
-  <section id="experience">
-    <h2>Experience</h2>
+  <section id="projects">
+    <h2>Projects</h2>
     <div class="card">
-      <h3>Seasonal Freelance Tax Preparer</h3>
-      <p>Self-Employed · Beckley, WV (2013–Present)</p>
-      <ul>
-        <li>Provide accuracy and confidentiality for clients’ financial data</li>
-        <li>Save clients hundreds each tax season in prep fees</li>
-      </ul>
+      <h3>Project One</h3>
+      <p>A description of your project goes here.</p>
     </div>
     <div class="card">
-      <h3>Student Services Coordinator</h3>
-      <p>Mountain State University · Beckley, WV (2009–2012)</p>
-      <ul>
-        <li>Streamlined transcript processing (50% faster)</li>
-        <li>Digitized archived transcripts into Jenzabar</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Administrative Associate</h3>
-      <p>Daniel Vineyards · Crab Orchard, WV (2006–2009)</p>
-      <ul>
-        <li>Installed digital inventory system with QuickBooks POS</li>
-        <li>Performed IT support, email marketing, and graphic design</li>
-      </ul>
+      <h3>Project Two</h3>
+      <p>Another project description goes here.</p>
     </div>
   </section>
 
-  <!-- Skills -->
   <section id="skills">
     <h2>Skills</h2>
     <ul class="skills-grid">
-      <li>Microsoft Office</li>
-      <li>Google Workspace</li>
-      <li>Customer Service</li>
-      <li>Data Entry & Database Management</li>
-      <li>Communication</li>
-      <li>Time Management</li>
-      <li>Problem-Solving</li>
-      <li>AI Literacy (Copilot, Claude, Gemini)</li>
-      <li>Critical & Creative Thinking</li>
-      <li>Resilience</li>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+      <li>React</li>
+      <li>Node.js</li>
     </ul>
   </section>
 
-  <!-- Education -->
-  <section id="education">
-    <h2>Education</h2>
-    <p>Regents Bachelor of Arts in History — Concord University, May 2014</p>
-  </section>
-
-  <!-- Contact -->
   <section id="contact">
     <h2>Contact</h2>
-    <p>Email: <a href="mailto:johnnykeppe@zohomail.com">johnnykeppe@zohomail.com</a></p>
-    <p>Phone: (304) 712-9855</p>
+    <p>Email: <a href="mailto:john@example.com">john@example.com</a></p>
   </section>
 
-  <!-- Footer -->
-<footer>
-  <p>© 2025 John Keppe. Built with guidance from Microsoft Copilot.</p>
-  <p>
-    <a href="https://github.com/john-keppe/portfolio#-ai-involvement" target="_blank">
-      Read the AI Involvement Addendum
-    </a>
-  </p>
-  <button id="theme-toggle">Toggle Dark Mode</button>
-</footer>
+  <footer>
+    <p>&copy; 2025 John Keppe. All rights reserved.</p>
+    <button id="theme-toggle-footer">Toggle Dark Mode</button>
+  </footer>
 
-<!-- Scroll to Top Button -->
-<button id="scroll-top" title="Back to top">↑</button>
+  <!-- Scroll to Top Button -->
+  <button id="scroll-top" title="Back to top">↑</button>
 
-<script>
-  const toggleButton = document.getElementById('theme-toggle');
-  const scrollTopBtn = document.getElementById('scroll-top');
+  <!-- Scripts -->
+  <script>
+    const toggleButton = document.getElementById('theme-toggle');
+    const toggleButtonFooter = document.getElementById('theme-toggle-footer');
+    const scrollTopBtn = document.getElementById('scroll-top');
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
 
-  // Apply saved theme on load
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'dark') {
-    document.body.classList.add('dark-mode');
-  }
+    // Apply saved theme on load
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
 
-  // Toggle theme and save preference
-  toggleButton.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    const newTheme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
-    localStorage.setItem('theme', newTheme);
-  });
+    // Toggle theme and save preference
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+      const newTheme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+      localStorage.setItem('theme', newTheme);
+    }
+    toggleButton.addEventListener('click', toggleTheme);
+    toggleButtonFooter.addEventListener('click', toggleTheme);
 
-  // Show scroll-to-top button when scrolling down
-  window.addEventListener('scroll', () => {
-    scrollTopBtn.style.display = window.scrollY > 300 ? 'flex' : 'none';
-  });
+    // Show scroll-to-top button when scrolling down
+    window.addEventListener('scroll', () => {
+      scrollTopBtn.style.display = window.scrollY > 300 ? 'flex' : 'none';
+    });
 
-  // Scroll to top on click
-  scrollTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+    // Scroll to top on click
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 
-// Toggle mobile menu
-  const menuToggle = document.getElementById('menu-toggle');
-  const navLinks = document.getElementById('nav-links');
-
-  menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('show');
-  });
-</script>
-
+    // Toggle mobile menu
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  </script>
 </body>
 </html>
+
