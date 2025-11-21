@@ -1,1 +1,48 @@
-# portfolio
+
+# John Keppe | Portfolio Website
+
+Welcome to my personal portfolio website!  
+This site showcases my professional background, skills, and experience in administrative support, customer service, and operations management. It is designed with a **modern minimalist style** to keep the focus on clarity and impact.
+
+---
+
+## 🚀 Features
+- **Clean, minimalist design** with responsive layout
+- **Hero section** introducing my professional tagline
+- **About section** summarizing my career focus
+- **Experience cards** highlighting key achievements in administrative and retail roles
+- **Skills grid** for quick overview of technical and soft skills
+- **Education section** with degree details
+- **Contact section** with email and phone information
+- **Footer credit** acknowledging Copilot’s guidance in building this site
+
+---
+
+## 🛠️ Tech Stack
+- **HTML5** for structure
+- **CSS3** for styling
+- Hosted on **GitHub Pages**
+
+---
+
+## 📂 Repository Structure
+portfolio/ 
+
+│── index.html # Main HTML file 
+
+│── style.css # Stylesheet 
+
+│── README.md # Project documentation
+
+---
+
+## 📬 Contact
+- **Email:** [johnnykeppe@zohomail.com](mailto:johnnykeppe@zohomail.com)  
+- **Phone:** (304) 712-9855  
+
+---
+
+## 🙏 Acknowledgments
+This portfolio website was built with guidance from **Microsoft Copilot**, which helped structure and style the project.
+
+---
