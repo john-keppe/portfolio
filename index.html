@@ -103,7 +103,15 @@
       Read the AI Involvement Addendum
     </a>
   </p>
+  <button id="theme-toggle">Toggle Dark Mode</button>
 </footer>
+
+<script>
+  const toggleButton = document.getElementById('theme-toggle');
+  toggleButton.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+  });
+</script>
 
 </body>
 </html>
