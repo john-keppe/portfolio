@@ -87,6 +87,11 @@ footer {
   margin-top: 2rem;
 }
 
+footer small {
+  color: var(--accent-color);
+  text-shadow: 0 0 6px var(--accent-color);
+}
+
 /* Responsive */
 @media (max-width: 600px) {
   nav { flex-direction: column; }
