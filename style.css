@@ -1,11 +1,11 @@
-/* Reset */
+/* === Reset === */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Color Variables */
+/* === Color Variables === */
 :root {
   --bg-color: #fdfdfd;
   --text-color: #333;
@@ -32,7 +32,7 @@ body.dark-mode {
   --button-hover: #3399ff;
 }
 
-/* Body */
+/* === Body === */
 body {
   font-family: 'Open Sans', Arial, sans-serif;
   background-color: var(--bg-color);
@@ -43,7 +43,7 @@ body {
   padding: 20px;
 }
 
-/* Navigation */
+/* === Navigation === */
 header {
   margin-bottom: 20px;
 }
@@ -70,7 +70,7 @@ nav a:hover {
   color: var(--link-color);
 }
 
-/* Hero */
+/* === Hero === */
 .hero {
   text-align: center;
   padding: 40px 0;
@@ -84,7 +84,7 @@ nav a:hover {
   color: var(--text-color);
 }
 
-/* Sections */
+/* === Sections === */
 section {
   margin: 40px 0;
 }
@@ -95,7 +95,7 @@ section h2 {
   padding-bottom: 5px;
 }
 
-/* Cards */
+/* === Cards === */
 .card {
   background-color: var(--card-bg);
   border: 1px solid var(--card-border);
@@ -116,7 +116,7 @@ section h2 {
   padding-left: 20px;
 }
 
-/* Skills Grid */
+/* === Skills Grid === */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -132,7 +132,7 @@ section h2 {
   font-size: 0.95rem;
 }
 
-/* Footer */
+/* === Footer === */
 footer {
   text-align: center;
   margin-top: 40px;
@@ -170,7 +170,7 @@ footer button:hover {
   background-color: var(--button-hover);
 }
 
-/* Scroll to Top Button */
+/* === Scroll to Top Button === */
 #scroll-top {
   position: fixed;
   bottom: 30px;
@@ -186,9 +186,51 @@ footer button:hover {
   display: none;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
   z-index: 1000;
 }
 #scroll-top:hover {
   background-color: var(--button-hover);
+}
+
+/* === Responsive Tweaks === */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  nav h1 {
+    font-size: 1.2rem;
+  }
+  .hero h2 {
+    font-size: 1.5rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .card {
+    padding: 10px;
+  }
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  footer button {
+    width: 100%;
+    margin-top: 15px;
+  }
+  #scroll-top {
+    bottom: 15px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
 }
