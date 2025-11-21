@@ -1,0 +1,196 @@
+/* retro.css — retro arcade neon theme */
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap');
+
+/* Root palette (light + dark inherit via body.dark) */
+:root {
+  --bg-color: #0b0d12;
+  --text-color: #e8f1ff;
+  --accent-color: #00e5ff;    /* neon cyan */
+  --accent-2: #ff00a8;        /* neon magenta */
+  --accent-3: #ffd300;        /* neon yellow */
+  --surface: rgba(8, 12, 20, 0.75);
+  --grid-line: rgba(0, 229, 255, 0.15);
+  --shadow-neon: 0 0 8px var(--accent-color), 0 0 16px var(--accent-color);
+}
+
+body.dark.theme-retro {
+  --bg-color: #00040a;
+  --text-color: #cfe9ff;
+  --accent-color: #00f7ff;
+  --accent-2: #ff27c0;
+  --accent-3: #ffe866;
+}
+
+/* Enable theme: add class "theme-retro" on <body> */
+.theme-retro {
+  background:
+    radial-gradient(1200px 500px at 50% -200px, rgba(255,255,255,0.05), transparent 60%),
+    linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6)),
+    #0b0d12;
+  color: var(--text-color);
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Retro scanline + subtle CRT flicker */
+.theme-retro::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.04) 0px,
+      rgba(255,255,255,0.04) 1px,
+      transparent 2px,
+      transparent 4px
+    );
+  mix-blend-mode: soft-light;
+  animation: crt-flicker 6s infinite;
+}
+@keyframes crt-flicker {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 0.15; }
+}
+
+/* Neon grid background layer */
+.theme-retro .retro-grid {
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 40px 40px, 40px 40px;
+  transform: perspective(600px) rotateX(60deg) translateY(20vh);
+  filter: drop-shadow(0 0 10px var(--accent-color));
+  z-index: -1;
+}
+
+/* Header */
+.theme-retro header {
+  background: transparent;
+  text-align: center;
+  padding: 2.5rem 1rem 1.5rem;
+}
+.theme-retro header h1 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: clamp(1.4rem, 4vw, 2.2rem);
+  color: var(--accent-color);
+  text-shadow: var(--shadow-neon);
+  letter-spacing: 2px;
+}
+.theme-retro header p {
+  margin-top: 0.5rem;
+  color: var(--accent-3);
+  text-shadow: 0 0 6px var(--accent-3);
+}
+
+/* Nav — pill chips with pixel borders */
+.theme-retro nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  background: transparent;
+  padding: 0.5rem 1rem 1rem;
+  flex-wrap: wrap;
+}
+.theme-retro nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 700;
+  border: 2px solid var(--accent-color);
+  padding: 0.45rem 0.75rem;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,229,255,0.4);
+  backdrop-filter: blur(6px);
+  background: linear-gradient(180deg, rgba(0,229,255,0.08), rgba(0,229,255,0.02));
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.theme-retro nav a:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-2);
+  box-shadow: 0 0 10px rgba(255,0,168,0.6);
+}
+
+/* Sections — glassy panels with pixel corners */
+.theme-retro section {
+  max-width: 1000px;
+  margin: 1rem auto;
+  padding: 1.25rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  border: 1.5px solid rgba(255,255,255,0.15);
+  border-radius: 14px;
+  position: relative;
+}
+.theme-retro section::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border: 1px dashed rgba(255,255,255,0.12);
+  border-radius: 18px;
+  pointer-events: none;
+}
+.theme-retro h2 {
+  font-family: 'Press Start 2P', cursive;
+  color: var(--accent-2);
+  margin-bottom: 1rem;
+  text-shadow: 0 0 8px var(--accent-2);
+}
+
+/* Lists */
+.theme-retro ul {
+  list-style: none;
+  display: grid;
+  gap: 0.5rem;
+}
+.theme-retro li {
+  position: relative;
+  padding-left: 1.25rem;
+}
+.theme-retro li::before {
+  content: "◆";
+  position: absolute;
+  left: 0;
+  color: var(--accent-3);
+  text-shadow: 0 0 6px var(--accent-3);
+}
+
+/* Toggle button (reuses existing markup) */
+.theme-retro .toggle-btn {
+  background: linear-gradient(180deg, var(--accent-2), #8a0068);
+  border: 2px solid var(--accent-2);
+  box-shadow: 0 0 10px rgba(255,0,168,0.6);
+  border-radius: 10px;
+}
+
+/* Scroll to top button */
+.theme-retro #scrollTopBtn {
+  background: var(--accent-color);
+  box-shadow: 0 0 10px rgba(0,229,255,0.6);
+  border: 2px solid var(--accent-color);
+}
+
+/* Footer */
+.theme-retro footer {
+  background: transparent;
+  color: var(--text-color);
+  text-align: center;
+  padding: 1.2rem;
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+
+/* Chart.js retro overrides */
+.theme-retro canvas {
+  background: rgba(0,0,0,0.2);
+  border: 2px solid var(--accent-2);
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(255,0,168,0.4);
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .theme-retro nav { padding: 0.25rem 0.75rem 1rem; }
+  .theme-retro section { margin: 0.75rem; padding: 1rem; }
+}
