@@ -1,4 +1,24 @@
-/* Dark Mode Overrides */
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Color Variables */
+:root {
+  --bg-color: #fdfdfd;
+  --text-color: #333;
+  --link-color: #0077cc;
+  --link-hover: #005fa3;
+  --card-bg: #fff;
+  --card-border: #eee;
+  --footer-bg: #fafafa;
+  --footer-text: #777;
+  --button-bg: #0077cc;
+  --button-hover: #005fa3;
+}
+
 body.dark-mode {
   --bg-color: #121212;
   --text-color: #eaeaea;
@@ -8,52 +28,19 @@ body.dark-mode {
   --card-border: #333;
   --footer-bg: #1a1a1a;
   --footer-text: #aaa;
-}
-
-.card {
-  background-color: var(--card-bg);
-  border: 1px solid var(--card-border);
-  color: var(--text-color);
-}
-
-.skills-grid li {
-  background-color: var(--card-bg);
-  color: var(--text-color);
-}
-
-footer {
-  background-color: var(--footer-bg);
-  color: var(--footer-text);
-}
-
-a {
-  color: var(--link-color);
-}
-a:hover {
-  color: var(--link-hover);
-}
-
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  --button-bg: #66b2ff;
+  --button-hover: #3399ff;
 }
 
 /* Body */
 body {
   font-family: 'Open Sans', Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   line-height: 1.6;
-  background-color: #fdfdfd;
-  color: #333;
   max-width: 900px;
   margin: auto;
   padding: 20px;
-}
-
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
 }
 
 /* Navigation */
@@ -76,11 +63,11 @@ nav ul {
 }
 nav a {
   text-decoration: none;
-  color: #333;
+  color: var(--text-color);
   font-weight: 500;
 }
 nav a:hover {
-  color: #0077cc;
+  color: var(--link-color);
 }
 
 /* Hero */
@@ -94,10 +81,6 @@ nav a:hover {
 }
 .hero p {
   font-size: 1.1rem;
-  color: #555;
-}
-
-h1, h2, h3, p, li {
   color: var(--text-color);
 }
 
@@ -108,14 +91,14 @@ section {
 section h2 {
   font-size: 1.5rem;
   margin-bottom: 15px;
-  border-bottom: 2px solid #eee;
+  border-bottom: 2px solid var(--card-border);
   padding-bottom: 5px;
 }
 
 /* Cards */
 .card {
-  background: #fff;
-  border: 1px solid #eee;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
   padding: 15px;
   margin-bottom: 15px;
   border-radius: 5px;
@@ -126,7 +109,7 @@ section h2 {
 }
 .card p {
   font-size: 0.95rem;
-  color: #555;
+  color: var(--text-color);
 }
 .card ul {
   margin-top: 10px;
@@ -141,7 +124,8 @@ section h2 {
   list-style: none;
 }
 .skills-grid li {
-  background: #f5f5f5;
+  background-color: var(--card-bg);
+  color: var(--text-color);
   padding: 10px;
   text-align: center;
   border-radius: 4px;
@@ -154,52 +138,57 @@ footer {
   margin-top: 40px;
   padding: 20px 0;
   font-size: 0.9rem;
-  color: #777;
-  border-top: 1px solid #eee;
-  background-color: #fafafa;
+  color: var(--footer-text);
+  border-top: 1px solid var(--card-border);
+  background-color: var(--footer-bg);
 }
-
 footer p {
   margin: 5px 0;
 }
-
 footer a {
-  color: #0077cc;          /* Accent color for link */
-  text-decoration: none;   /* Remove underline */
+  color: var(--link-color);
+  text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease, border-bottom 0.3s ease;
 }
-
 footer a:hover {
-  color: #005fa3;          /* Darker shade on hover */
-  border-bottom: 1px solid #005fa3; /* Subtle underline effect */
+  color: var(--link-hover);
+  border-bottom: 1px solid var(--link-hover);
 }
-
-/* Color Variables */
-:root {
-  --bg-color: #fdfdfd;
-  --text-color: #333;
-  --link-color: #0077cc;
-  --link-hover: #005fa3;
-  --card-bg: #fff;
-  --card-border: #eee;
-  --footer-bg: #fafafa;
-  --footer-text: #777;
-}
-
-/* Footer Button */
 footer button {
   margin-top: 10px;
   padding: 6px 12px;
   border: none;
   border-radius: 4px;
-  background-color: var(--link-color);
+  background-color: var(--button-bg);
   color: #fff;
   cursor: pointer;
   font-size: 0.9rem;
   transition: background-color 0.3s ease;
 }
-
 footer button:hover {
-  background-color: var(--link-hover);
+  background-color: var(--button-hover);
+}
+
+/* Scroll to Top Button */
+#scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: var(--button-bg);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+  z-index: 1000;
+}
+#scroll-top:hover {
+  background-color: var(--button-hover);
 }
