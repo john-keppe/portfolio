@@ -79,6 +79,8 @@ h2 {
   font-size: 18px;
 }
 
+
+
 footer {
   text-align: center;
   padding: 1rem;
@@ -97,4 +99,73 @@ footer small {
   nav { flex-direction: column; }
 }
 
+/* Contact Section */
+#contact {
+  background-color: #1a1a2e; /* dark retro background */
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 40px auto;
+  box-shadow: 0 0 20px rgba(0,229,255,0.3);
+}
+
+/* Heading */
+#contact h2 {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 24px;
+  color: #00e5ff; /* neon cyan */
+  text-shadow: 0 0 6px #00e5ff;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Labels */
+#contact label {
+  display: block;
+  margin: 12px 0 6px;
+  font-size: 14px;
+  color: #ff00a8; /* neon magenta */
+  text-shadow: 0 0 4px #ff00a8;
+}
+
+/* Inputs & Textarea */
+#contact input,
+#contact textarea {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #00e5ff;
+  border-radius: 8px;
+  background-color: #0f1320;
+  color: #e0e0e0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#contact input:focus,
+#contact textarea:focus {
+  border-color: #ffd600; /* neon yellow */
+  box-shadow: 0 0 8px #ffd600;
+}
+
+/* Button */
+#contact button {
+  margin-top: 16px;
+  padding: 12px 20px;
+  background: linear-gradient(180deg, #ffd600, #ffb300);
+  border: none;
+  border-radius: 8px;
+  color: #1a1a2e;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  text-shadow: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#contact button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 12px #ffd600, 0 0 24px rgba(255,214,0,0.6);
+}
 
