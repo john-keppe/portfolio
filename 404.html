@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>404 — Page Not Found</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #1a1a2e;
+      --panel: #0f1320;
+      --text: #e0e0e0;
+      --cyan: #00e5ff;
+      --magenta: #ff00a8;
+      --yellow: #ffd600;
+      --dim: #7a7a7a;
+      --shadow-cyan: 0 0 8px rgba(0,229,255,0.7), 0 0 18px rgba(0,229,255,0.35);
+      --shadow-magenta: 0 0 8px rgba(255,0,168,0.7), 0 0 18px rgba(255,0,168,0.35);
+      --shadow-yellow: 0 0 6px rgba(255,214,0,0.7), 0 0 14px rgba(255,214,0,0.35);
+    }
+
+    /* Page */
+    html, body {
+      height: 100%;
+      background: radial-gradient(1200px 600px at 50% 10%, #0c0f1c 0%, var(--bg) 40%, #121630 100%);
+      color: var(--text);
+      font-family: 'Roboto', system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+      margin: 0;
+    }
+
+    /* Grid frame (retro scanlines + subtle neon border) */
+    .frame {
+      min-height: 100%;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Scanlines */
+    .frame::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 100% 3px;
+      pointer-events: none;
+      mix-blend-mode: soft-light;
+    }
+
+    /* Content card */
+    .card {
+      width: min(780px, 92vw);
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.0)) var(--panel);
+      border: 1px solid #2a2f45;
+      border-radius: 14px;
+      box-shadow: 0 0 0 2px rgba(0,229,255,0.12), 0 24px 60px rgba(0,0,0,0.5);
+      padding: 32px 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Top neon accent */
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -2px -2px auto -2px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--cyan), var(--magenta), var(--yellow));
+      filter: blur(0.5px);
+      box-shadow: var(--shadow-cyan);
+    }
+
+    /* Title */
+    .title {
+      font-family: 'Roboto Mono', monospace;
+      font-weight: 700;
+      font-size: clamp(28px, 6vw, 44px);
+      letter-spacing: 1.5px;
+      color: var(--cyan);
+      text-shadow: var(--shadow-cyan);
+      margin: 0 0 8px;
+    }
+
+    .subtitle {
+      font-family: 'Roboto Mono', monospace;
+      font-size: clamp(16px, 3.5vw, 20px);
+      color: var(--magenta);
+      text-shadow: var(--shadow-magenta);
+      margin: 0 0 18px;
+    }
+
+    .desc {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text);
+      margin: 0 0 20px;
+    }
+
+    /* Action buttons */
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 10px 0 8px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid #2a2f45;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      background: #151831;
+      transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      border-color: var(--cyan);
+      box-shadow: var(--shadow-cyan);
+    }
+
+    .btn--primary {
+      color: #06131a;
+      background: linear-gradient(180deg, #00e5ff, #00b8d4);
+      border-color: transparent;
+      text-shadow: none;
+      box-shadow: var(--shadow-cyan);
+    }
+
+    .btn--primary:hover {
+      box-shadow: 0 0 12px rgba(0,229,255,0.9), 0 0 30px rgba(0,229,255,0.4);
+    }
+
+    /* Helpful links */
+    .links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .link {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: #121630;
+      border: 1px solid #2a2f45;
+      color: var(--text);
+      text-decoration: none;
+      transition: border-color 120ms ease, box-shadow 120ms ease, transform 120ms ease;
+    }
+
+    .link:hover {
+      border-color: var(--magenta);
+      box-shadow: var(--shadow-magenta);
+      transform: translateY(-1px);
+    }
+
+    /* Footer note */
+    .note {
+      margin-top: 18px;
+      font-size: 13px;
+      color: var(--dim);
+    }
+
+    /* Accessibility helpers */
+    .sr-only {
+      position: absolute !important;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0);
+      white-space: nowrap; border: 0;
+    }
+  </style>
+</head>
+<body>
+  <main class="frame" role="main" aria-labelledby="title">
+    <section class="card">
+      <h1 id="title" class="title">404 — Page Not Found</h1>
+      <p class="subtitle">The neon trail fizzled out.</p>
+      <p class="desc">
+        The page you’re looking for doesn’t exist or moved. Try the options below to get back on track.
+      </p>
+
+      <div class="actions" role="navigation" aria-label="Primary actions">
+        <a class="btn btn--primary" href="/" aria-label="Go to homepage">Go home</a>
+        <a class="btn" href="/portfolio" aria-label="Visit portfolio">View portfolio</a>
+        <a class="btn" href="/resume" aria-label="Open resume">Resume</a>
+        <a class="btn" href="/contact" aria-label="Contact page">Contact</a>
+      </div>
+
+      <div class="links" aria-label="Helpful links">
+        <a class="link" href="/projects">Projects</a>
+        <a class="link" href="/about">About</a>
+        <a class="link" href="/theme">Theme toggle</a>
+        <a class="link" href="mailto:johnnykeppe@zohomail.com">Email John</a>
+      </div>
+
+      <p class="note">
+        Tip: Check the URL for typos, or use the navigation to find your way.
+      </p>
+    </section>
+
+    <span class="sr-only">Background includes subtle scanlines and neon accents for visual atmosphere.</span>
+  </main>
+</body>
+</html>
