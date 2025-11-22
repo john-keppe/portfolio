@@ -186,6 +186,22 @@
     <p>Phone: (304) 712-9855</p>
   </section>
 
+<section id="contact">
+  <h2>Contact Me</h2>
+    <form id="contact-form" method="POST" action="/.netlify/functions/sendEmail">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+  
   <footer>
     <p>&copy; 2025 John Keppe | Retro‑Modern Portfolio</p>
       <p><small>This portfolio website was created with the help of Microsoft Copilot, with minimal vibe coding and resume upload by John Keppe.</small></p>
